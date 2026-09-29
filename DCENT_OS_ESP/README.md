@@ -346,8 +346,9 @@ Toolbox routes intentionally accept only the six rows above.
 
 For a guarded, single-target Windows compile of the experimental NerdQaxe++ Rev 5.1
 target, see [the lab build guide](docs/NERDQAXE_PP_REV51_LAB.md) and
-`scripts/build-nerdqaxe-pp.ps1`. This build helper compiles only; it does not package
-or flash the device.
+`scripts/build-nerdqaxe-pp.sh` (WSL/Linux) or `scripts/build-nerdqaxe-pp.ps1`
+(Windows PowerShell). Both helpers compile only; neither packages nor flashes
+the device.
 
 Hammer and Lucky are **16 MB (N16R8)** boards and need the shared 16 MB flash
 geometry — the build matrix selects it automatically:
