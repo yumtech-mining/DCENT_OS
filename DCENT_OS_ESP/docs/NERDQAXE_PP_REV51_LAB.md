@@ -14,13 +14,16 @@ wsl -d Ubuntu
 
 Run the remaining commands inside the Ubuntu shell. Keep the source and build output in the Linux home directory (for example, `~/src` and `~/nqpp-build`), not under `/mnt/c`; this avoids slow cross-filesystem build traffic and keeps ESP-IDF paths short.
 
-Install the host packages:
+ESP-IDF v5.4's Linux guide lists Ubuntu/Debian prerequisites and requires Python 3.8 or newer. It does not name Ubuntu 26.04 specifically, so the actual target build is the compatibility check for this WSL image.
+
+Install the ESP-IDF host packages and the extra Rust/Clang build dependencies:
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential cmake ninja-build clang llvm-dev libclang-dev \
-  libudev-dev libuv1-dev pkg-config python3 python3-venv python3-pip git curl \
-  libssl-dev libusb-1.0-0
+sudo apt install -y build-essential git wget curl flex bison gperf \
+  python3 python3-pip python3-venv python-is-python3 cmake ninja-build ccache \
+  libffi-dev libssl-dev dfu-util libusb-1.0-0 clang llvm-dev libclang-dev \
+  libudev-dev libuv1-dev pkg-config
 ```
 
 If `rustup` is not installed in Ubuntu, install it using the official installer, then initialize it in the current shell. Windows Rust installs are separate from WSL installs.
